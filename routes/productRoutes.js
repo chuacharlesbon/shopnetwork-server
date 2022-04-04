@@ -8,13 +8,19 @@ const auth = require("../auth")
 
 const {verify, verifyAdmin} = auth;
 
-/*router.post('/', verify, verifyAdmin, courseControllers.addCourse)
+router.post('/', verify, verifyAdmin, productControllers.addProduct)
 
-router.get('/', courseControllers.getAllCourses)
+router.get('/', productControllers.getAllProducts)
 
-//activity 3 
+router.get('/getSingleProduct/:id', productControllers.getSingleProduct)
 
-router.get('/getSingleCourse/:id', courseControllers.getSingleCourse)
+
+
+
+
+
+/*
+
 
 //Activity 4
 

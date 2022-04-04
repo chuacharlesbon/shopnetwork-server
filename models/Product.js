@@ -26,7 +26,13 @@ let productSchema =  new mongoose.Schema ({
 		type: Date,
 		default: new Date()
 	}
-	/*orders: [
+	/*
+	category:
+	{
+		type: String,
+		required: [true, "Product Category is required"]
+	}
+	orders: [
 	{
 		userId:
 		{

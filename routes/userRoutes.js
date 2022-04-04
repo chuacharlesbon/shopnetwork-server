@@ -10,15 +10,26 @@ const {verify, verifyAdmin} = auth;
 
 router.post('/', userControllers.registerUser)
 
-/*router.get('/', userControllers.getAllUsers)
+router.post('/checkEmailExists', userControllers.checkEmailExists)
 
 router.post('/login', userControllers.loginUser)
 
+router.put('/updateAdmin/:id', verify, verifyAdmin, userControllers.updateAdmin)
+
+
+
+
+
+
+/*router.get('/', userControllers.getAllUsers)
+
+
+
 router.get('/getUserDetails', verify, userControllers.getUserDetails)
 
-router.post('/checkEmailExists', userControllers.checkEmailExists)
 
-router.put('/updateAdmin/:id', verify, verifyAdmin, userControllers.updateAdmin)
+
+
 
 router.put("/updateUserDetails", verify, userControllers.updateUserDetails)
 
