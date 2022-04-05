@@ -18,6 +18,8 @@ router.put('/payOrder/:id', verify, orderControllers.payOrder)
 
 router.put('/cancelOrder/:id', verify, orderControllers.cancelOrder)
 
+router.put('/editOrder/:id', verify, orderControllers.editOrder)
+
 module.exports = router;
 
 

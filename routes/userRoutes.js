@@ -16,4 +16,8 @@ router.post('/login', userControllers.loginUser)
 
 router.put('/updateAdmin/:id', verify, verifyAdmin, userControllers.updateAdmin)
 
+router.put("/updateUserDetails", verify, userControllers.updateUserDetails)
+
+router.delete('/deleteSingleUser/:id', verify, verifyAdmin, userControllers.deleteSingleUser)
+
 module.exports = router;

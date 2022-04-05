@@ -4,7 +4,7 @@ const Product = require("../models/Product")
 
 const User = require("../models/User");
 
-//User orders item
+//User orders an item
 module.exports.addOrder = (req, res) => {
 	console.log(req.user)
 	console.log(req.params.id)
@@ -33,7 +33,17 @@ module.exports.addOrder = (req, res) => {
 }
 
 
-//User All his/her orders
+
+
+
+
+
+
+
+
+
+
+//User get All his/her orders
 module.exports.getUserOrders = (req, res) => {
 	Order.find({userId: req.user.id})
 	.then(result => res.send(result))
@@ -114,7 +124,34 @@ module.exports.cancelOrder = (req, res) => {
 	.catch(error => res.send(error))
 
 }
+//USER edit order by id
+module.exports.editOrder = (req, res) => {
 
+	console.log(req.user.id)
+	console.log(req.params.id)
+
+	Order.findById(req.params.id)
+	.then(result => {
+	if (result.userId === req.user.id ){
+	let itemPrice = result.price
+	let total = req.body.quantity*itemPrice
+
+	let updates = {
+		quantity: req.body.quantity,
+		totalPrice: total
+	}
+	Order.findByIdAndUpdate(req.params.id, updates, {new:true})
+	.then(user => res.send(user))
+	.catch(error => res.send(error))
+	}else {
+		return res.send("This is not your Order")
+	}
+	})
+	.catch(error => res.send(error))
+
+
+
+}
 
 
 

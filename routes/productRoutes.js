@@ -10,7 +10,9 @@ const {verify, verifyAdmin} = auth;
 
 router.post('/', verify, verifyAdmin, productControllers.addProduct)
 
-router.get('/', /*verify, verifyAdmin,*/ productControllers.getAllProducts)
+router.get('/', productControllers.getAllProducts)
+
+router.get('/getAllProductsLists', verify, verifyAdmin, productControllers.getAllProductsLists)
 
 router.get('/getSingleProduct/:id', productControllers.getSingleProduct)
 
@@ -20,7 +22,16 @@ router.put('/:id', verify, verifyAdmin, productControllers.updateProductDetails)
 
 router.put('/archive/:id', verify, verifyAdmin, productControllers.productArchive)
 
-router.get('/getActiveProducts', verify, verifyAdmin, productControllers.getActiveProducts)
+router.put('/activate/:id', verify, verifyAdmin, productControllers.productActivate)
+
+router.get('/getActiveProducts', productControllers.getActiveProducts)
+
+router.delete('/deleteSingleProduct/:id', verify, verifyAdmin, productControllers.deleteSingleProduct)
+
+/*
+Route Locked:
+router.delete('/deleteAllProducts/:id', verify, verifyAdmin, productControllers.deleteAllProducts)
+*/
 
 
 module.exports = router;

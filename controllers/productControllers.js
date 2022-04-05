@@ -25,12 +25,19 @@ module.exports.addProduct = (req, res) => {
 
 };
 
-//Search all products in the lists
+//User Search all products in the lists
 module.exports.getAllProducts = (req, res) => {
-	Product.find({})
+	Product.find({isActive: true})
 	.then(result => res.send(result))
 	.catch(error => res.send(error))
 
+}
+
+//ADMIN Search all products in the lists
+module.exports.getAllProductsLists = (req, res) => {
+	Product.find({})
+	.then(result => res.send(result))
+	.catch(error => res.send(error))
 
 }
 
@@ -92,7 +99,7 @@ module.exports.updateProductDetails = (req, res) => {
 
 }
 
-//Archive products by Admin only
+//Archive products with id by Admin only
 module.exports.productArchive = (req, res) => {
 
 	console.log(req.params.id);
@@ -108,14 +115,54 @@ module.exports.productArchive = (req, res) => {
 
 }
 
-//Get Active Products by public
+//Activate products with id by Admin only
+module.exports.productActivate = (req, res) => {
+
+	console.log(req.params.id);
+
+	let updates = {
+		isActive: true
+	}
+
+	Product.findByIdAndUpdate(req.params.id, updates, {new:true})
+	.then(updatedActive => res.send(updatedActive))
+	.catch(error => res.send(error))
+
+
+}
+
+
+
+//Get Active Products by public 
 module.exports.getActiveProducts = (req, res) => {
 	Product.find({isActive: true})
 	.then(result => res.send(result))
 	.catch(error => res.send(error))
 
+}
+
+
+//ADMIN delete single product by ID
+module.exports.deleteSingleProduct = (req, res) => {
+	console.log(req.params.id)
+	Product.deleteOne({_id: req.params.id})
+	.then(result => res.send(result))
+	.catch(error => res.send(error))
 
 }
+
+
+/*
+CONTROLLER LOCKED
+
+ADMIN Delete all products on lists
+
+module.exports.deleteAllProducts = (req, res) => {
+	Product.deleteMany({})
+	.then(result => res.send(result))
+	.catch(error => res.send(error))
+}
+*/
 
 
 

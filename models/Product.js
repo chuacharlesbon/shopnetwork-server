@@ -16,6 +16,10 @@ let productSchema =  new mongoose.Schema ({
 		type: Number,
 		required: [true, "Price is required"]
 	},
+	stockAvailable:
+	{
+		type: Number
+	},
 	isActive:
 	{
 		type: Boolean,

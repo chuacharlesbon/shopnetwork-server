@@ -84,9 +84,34 @@ module.exports.updateAdmin = (req, res) => {
 
 }
 
+//ADMIN delete single user by ID
+module.exports.deleteSingleUser = (req, res) => {
+	console.log(req.params.id)
+	User.deleteOne({_id: req.params.id})
+	.then(result => res.send(result))
+	.catch(error => res.send(error))
+
+}
+
+
+//User to update his/her details
+module.exports.updateUserDetails = (req, res) => {
+	console.log(req.body);
+	//check the user id
+	console.log(req.user.id);
+
+	let updates = {
+		firstName: req.body.firstName,
+		lastName: req.body.lastName,
+		mobileNo: req.body.mobileNo
+	}
+
+	User.findByIdAndUpdate(req.user.id, updates, {new:true})
+	.then(updatedUser => res.send(updatedUser))
+	.catch(error => res.send(error))
 
 
 
-
+}
 
 
