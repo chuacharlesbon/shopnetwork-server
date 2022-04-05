@@ -7,6 +7,10 @@ let orderSchema =  new mongoose.Schema ({
 			type: String,
 			required: [true, "User ID is required"]
 		},
+		productId:  {
+			type: String,
+			required: [true, "Product ID is required"]
+		},
 		quantity:  {
 			type: Number,
 			required: [true, "Quantity is required"]
@@ -19,12 +23,28 @@ let orderSchema =  new mongoose.Schema ({
 		{
 			type: String,
 			default: "Pending"
-			//Pending|ForDelivery|Completed
+			//Pending|ForDelivery|Completed|Cancelled
 		},
 		dateOrder:
 		{
 			type: Date,
 			default: new Date()
+		},
+		dateCancelled:
+		{
+			type: Date
+		},
+		payment:
+		{
+			type: Number
+		},
+		balance:
+		{
+			type: Number
+		},
+		remarks:
+		{
+			type: String
 		}
 
 });

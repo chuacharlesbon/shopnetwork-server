@@ -1,0 +1,518 @@
+{
+	"info": {
+		"_postman_id": "8bb6944e-63a0-413c-9ab5-64442871e615",
+		"name": "capstone2_chua",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Baby Winry\",\r\n    \"lastName\": \"Rockbell-Elric\",\r\n    \"email\": \"winrychildheart@gmail.com\",\r\n    \"mobileNo\": \"09123456789\",\r\n    \"password\": \"user123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/users",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check User Email",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"winryheart14@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/users/checkEmailExists",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"users",
+						"checkEmailExists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login USER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"winryheart@gmail.com\",\r\n    \"password\": \"user123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/users/login",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AdminPage: Set User as Admin",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/users/updateAdmin/624a934c73d362b1022a2909",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"users",
+						"updateAdmin",
+						"624a934c73d362b1022a2909"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AdminPage: Create Product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5MzRjNzNkMzYyYjEwMjJhMjkwOSIsImVtYWlsIjoiZWR3YXJkQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTA1ODg2Nn0.pCYEUa2gtxCe3mFj6KeheKpWY6TF2MxgEMKNTS2WIMY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Screws Set-3\",\r\n\t\"description\": \"Alloy metal screws, 4inches, 8mm, plus 2inches, 5mm\",\r\n\t\"price\": 10000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/products",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PublicPage: Retrieve All Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/products",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PublicPage: Retrieve Single Product By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/products/getSingleProduct/624aa4e0481beaf473fc9d49",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"products",
+						"getSingleProduct",
+						"624aa4e0481beaf473fc9d49"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PublicPage: Retrieve Single Product By Name",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"name\": \"Screws Set-3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/products/getSingleProductByName",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"products",
+						"getSingleProductByName"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AdminPage: Update Product Details By ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5MzRjNzNkMzYyYjEwMjJhMjkwOSIsImVtYWlsIjoiZWR3YXJkQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTEyMjQ0MX0.fpnJTShwa2Aqxtk8JML1Oi4h7CjAzJF7NHAzAEcRddw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"price\": 3000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/products/624aa4e0481beaf473fc9d49",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"products",
+						"624aa4e0481beaf473fc9d49"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AdminPage: Get Active Products",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5MzRjNzNkMzYyYjEwMjJhMjkwOSIsImVtYWlsIjoiZWR3YXJkQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTEyMjQ0MX0.fpnJTShwa2Aqxtk8JML1Oi4h7CjAzJF7NHAzAEcRddw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/products/getActiveProducts",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"products",
+						"getActiveProducts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PublicUser: Add order By ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5NzUyMGI2OGFkYzFkNjhiZWFhNCIsImVtYWlsIjoid2lucnloZWFydEBnbWFpbC5jb20iLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjQ5MTIzMjIwfQ.prTaUuvsiX2fdN8F1LHdIxap5_C4m1HKYVmafF4AdKE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"quantity\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/orders/624aa4fe481beaf473fc9d4b",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"orders",
+						"624aa4fe481beaf473fc9d4b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AdminPage: Get All Orders",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5MzkxNzNkMzYyYjEwMjJhMjkwYiIsImVtYWlsIjoiYWxwaG9uc2VAZ21haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjQ5MTI0MTMzfQ.ui3wRe1ae1_h4CZ6WlJVY419AFeq6TYTNTFHvwAEBz4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/orders/getAllOrders",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"orders",
+						"getAllOrders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PublicUser2: Add Order by ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5ZWRkZTYyZjBjMjM3M2NlNjA2ZSIsImVtYWlsIjoid2lucnljaGlsZGhlYXJ0QGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDkxMjQyNDN9._CnZtodWdfRV3kw6E2LYhStiwss6M5LJahwLGz706pY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"quantity\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/orders/624aa4e0481beaf473fc9d49",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"orders",
+						"624aa4e0481beaf473fc9d49"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PublicUser: Get All My Orders",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5ZWRkZTYyZjBjMjM3M2NlNjA2ZSIsImVtYWlsIjoid2lucnljaGlsZGhlYXJ0QGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDkxMjQyNDN9._CnZtodWdfRV3kw6E2LYhStiwss6M5LJahwLGz706pY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/orders/getUserOrders",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"orders",
+						"getUserOrders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AdminPage: Product Archive",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5MzRjNzNkMzYyYjEwMjJhMjkwOSIsImVtYWlsIjoiZWR3YXJkQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTEyMjQ0MX0.fpnJTShwa2Aqxtk8JML1Oi4h7CjAzJF7NHAzAEcRddw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/products/archive/624babe34c7d33fca4f87701",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"products",
+						"archive",
+						"624babe34c7d33fca4f87701"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PublicUser: Pay Order by ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5NzUyMGI2OGFkYzFkNjhiZWFhNCIsImVtYWlsIjoid2lucnloZWFydEBnbWFpbC5jb20iLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjQ5MTI5ODMzfQ.XJY9cwWlVeVZfcCu0y0xx49SNR04s4iBcMS3ziVb4ZA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"payment\": 5000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/orders/payOrder/624ba2674656fbf9a49823a4",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"orders",
+						"payOrder",
+						"624ba2674656fbf9a49823a4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PublicUser: Cancel Order by ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5ZWRkZTYyZjBjMjM3M2NlNjA2ZSIsImVtYWlsIjoid2lucnljaGlsZGhlYXJ0QGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDkxMjgxNDh9.nGK1pDDUzPmdhZhBTNcm0pwvvEnBGweD565YE07ItfU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/orders/cancelOrder/624ba3c74656fbf9a49823ad",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"orders",
+						"cancelOrder",
+						"624ba3c74656fbf9a49823ad"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

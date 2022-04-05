@@ -8,6 +8,8 @@ const userRoutes = require('./routes/userRoutes')
 
 const productRoutes = require('./routes/productRoutes')
 
+const orderRoutes = require('./routes/orderRoutes')
+
 const app = express();
 
 mongoose.connect("mongodb+srv://admin_chua:batch169@batch169chua.g8jtg.mongodb.net/ecommerceAPI169?retryWrites=true&w=majority",
@@ -31,5 +33,7 @@ app.use(express.json());
 app.use('/users', userRoutes);
 
 app.use('/products', productRoutes);
+
+app.use('/orders', orderRoutes);
 
 app.listen(port, () => console.log (`Server is now running at port ${port}`))
