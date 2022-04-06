@@ -7,6 +7,11 @@ let orderSchema =  new mongoose.Schema ({
 			type: String,
 			required: [true, "User ID is required"]
 		},
+		username:
+		{
+			type: String,
+			required: [true, "User Name is required"]
+		},
 		productId:  {
 			type: String,
 			required: [true, "Product ID is required"]
@@ -18,6 +23,26 @@ let orderSchema =  new mongoose.Schema ({
 		totalPrice: {
 			type: Number,
 			required: [true, "Price is required"]
+		},
+		payment:
+		{
+			type: Number
+		},
+		balance:
+		{
+			type: Number
+		},
+		cardType:
+		{
+			type: String
+		},
+		cardNumber:
+		{
+			type: String
+		},
+		remarks:
+		{
+			type: String
 		},
 		status:
 		{
@@ -33,20 +58,7 @@ let orderSchema =  new mongoose.Schema ({
 		dateCancelled:
 		{
 			type: Date
-		},
-		payment:
-		{
-			type: Number
-		},
-		balance:
-		{
-			type: Number
-		},
-		remarks:
-		{
-			type: String
 		}
-
 });
 
 module.exports = mongoose.model("Order", orderSchema)

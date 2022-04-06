@@ -20,6 +20,20 @@ router.put('/cancelOrder/:id', verify, orderControllers.cancelOrder)
 
 router.put('/editOrder/:id', verify, orderControllers.editOrder)
 
+router.put('/approveOrder/:id', verify, verifyAdmin, orderControllers.approveOrder)
+
+/*router.put('/payOrderByProductId/:id', verify, orderControllers.payOrderByProductId)*/
+
+router.delete('/deleteAllOrders', orderControllers.deleteAllOrders)
+
+router.get('/searchOrder/:id', orderControllers.searchOrder)
+
+router.get('/getTotalOrdersByProductId/:id', orderControllers.getTotalOrdersByProductId)
+
+
+
+
+
 module.exports = router;
 
 

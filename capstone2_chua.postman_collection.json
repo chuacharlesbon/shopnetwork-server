@@ -6,513 +6,896 @@
 	},
 	"item": [
 		{
-			"name": "Register User",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"firstName\": \"Baby Winry\",\r\n    \"lastName\": \"Rockbell-Elric\",\r\n    \"email\": \"winrychildheart@gmail.com\",\r\n    \"mobileNo\": \"09123456789\",\r\n    \"password\": \"user123\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Admin",
+			"item": [
+				{
+					"name": "AdminPage: Delete Single User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5MzRjNzNkMzYyYjEwMjJhMjkwOSIsImVtYWlsIjoiZWR3YXJkQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTEzNjIyMn0.ReaZDHxlDggvxKvYN-0y7Ko45akE8-oRuAOfr-9EBxI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/users/deleteSingleUser/624bd93b528fc697b6b62489",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users",
+								"deleteSingleUser",
+								"624bd93b528fc697b6b62489"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:4000/users",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"users"
-					]
+				{
+					"name": "AdminPage: Product Activation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5MzRjNzNkMzYyYjEwMjJhMjkwOSIsImVtYWlsIjoiZWR3YXJkQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTEzNjIyMn0.ReaZDHxlDggvxKvYN-0y7Ko45akE8-oRuAOfr-9EBxI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/products/activate/624babe34c7d33fca4f87701",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"products",
+								"activate",
+								"624babe34c7d33fca4f87701"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdminPage: Create Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5MzRjNzNkMzYyYjEwMjJhMjkwOSIsImVtYWlsIjoiZWR3YXJkQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTA1ODg2Nn0.pCYEUa2gtxCe3mFj6KeheKpWY6TF2MxgEMKNTS2WIMY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Aluminum Plates-2\",\r\n\t\"description\": \"24inchesx12inchesx10mm\",\r\n\t\"price\": 20000,\r\n    \"stockAvailable\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/products",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdminPage: Set User as Admin",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/users/updateAdmin/624a934c73d362b1022a2909",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users",
+								"updateAdmin",
+								"624a934c73d362b1022a2909"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdminPage: Update Product Details By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5MzRjNzNkMzYyYjEwMjJhMjkwOSIsImVtYWlsIjoiZWR3YXJkQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTEyMjQ0MX0.fpnJTShwa2Aqxtk8JML1Oi4h7CjAzJF7NHAzAEcRddw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category\": \"Screws\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/products/624aa4e0481beaf473fc9d49",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"products",
+								"624aa4e0481beaf473fc9d49"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdminPage: Get All Orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5MzkxNzNkMzYyYjEwMjJhMjkwYiIsImVtYWlsIjoiYWxwaG9uc2VAZ21haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjQ5MTI0MTMzfQ.ui3wRe1ae1_h4CZ6WlJVY419AFeq6TYTNTFHvwAEBz4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/orders/getAllOrders",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"orders",
+								"getAllOrders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdminPage: Product Archive",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5MzRjNzNkMzYyYjEwMjJhMjkwOSIsImVtYWlsIjoiZWR3YXJkQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTEyMjQ0MX0.fpnJTShwa2Aqxtk8JML1Oi4h7CjAzJF7NHAzAEcRddw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/products/archive/624babe34c7d33fca4f87701",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"products",
+								"archive",
+								"624babe34c7d33fca4f87701"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdminPage: Retrieve All Products List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5MzRjNzNkMzYyYjEwMjJhMjkwOSIsImVtYWlsIjoiZWR3YXJkQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTEzNjIyMn0.ReaZDHxlDggvxKvYN-0y7Ko45akE8-oRuAOfr-9EBxI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/products/getAllProductsLists",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"products",
+								"getAllProductsLists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdminPage: Delete Single Product By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5MzRjNzNkMzYyYjEwMjJhMjkwOSIsImVtYWlsIjoiZWR3YXJkQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTEzNjIyMn0.ReaZDHxlDggvxKvYN-0y7Ko45akE8-oRuAOfr-9EBxI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/products/deleteSingleProduct/624bd50f2035619c047d3c97",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"products",
+								"deleteSingleProduct",
+								"624bd50f2035619c047d3c97"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(Unavailable) AdminPage: Delete All Products",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/products/deleteAllProducts",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"products",
+								"deleteAllProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdminPage: Approve Order by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5MzRjNzNkMzYyYjEwMjJhMjkwOSIsImVtYWlsIjoiZWR3YXJkQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiRWR3YXJkIEVscmljIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjQ5MTQ5MDE3fQ.sqbcparymkXkBygSenrBCf0NB1Uh1FH63n7qjgVabqU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/orders/approveOrder/624bfd9121bcc1c0453a5934",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"orders",
+								"approveOrder",
+								"624bfd9121bcc1c0453a5934"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdminPage: Sync Order to Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/products/syncOrders/624bfd4921bcc1c0453a5930",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"products",
+								"syncOrders",
+								"624bfd4921bcc1c0453a5930"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdminPage: Get Total Orders By Product ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/orders/getTotalOrdersByProductId/624aa4e0481beaf473fc9d49",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"orders",
+								"getTotalOrdersByProductId",
+								"624aa4e0481beaf473fc9d49"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Check User Email",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"winryheart14@gmail.com\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Public Registered User",
+			"item": [
+				{
+					"name": "Login USER",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"winrychildheart@gmail.com\",\r\n    \"password\": \"user123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/users/login",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users",
+								"login"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:4000/users/checkEmailExists",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"users",
-						"checkEmailExists"
-					]
+				{
+					"name": "PublicUser: Add order By Product ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5ZWRkZTYyZjBjMjM3M2NlNjA2ZSIsImVtYWlsIjoid2lucnljaGlsZGhlYXJ0QGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiQmFieSBXaW5yeSBSb2NrYmVsbC1FbHJpYyIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDkxNDcyMzl9.AdmN5TNPut9HRbIJ7ugtdw-LcXxLFZYUCtBBBhbHQ4A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quantity\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/orders/624bfd4921bcc1c0453a5930",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"orders",
+								"624bfd4921bcc1c0453a5930"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PublicUser2: Add Order by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5ZWRkZTYyZjBjMjM3M2NlNjA2ZSIsImVtYWlsIjoid2lucnljaGlsZGhlYXJ0QGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDkxMjQyNDN9._CnZtodWdfRV3kw6E2LYhStiwss6M5LJahwLGz706pY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quantity\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/orders/624aa4e0481beaf473fc9d49",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"orders",
+								"624aa4e0481beaf473fc9d49"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PublicUser: Get All My Orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5ZWRkZTYyZjBjMjM3M2NlNjA2ZSIsImVtYWlsIjoid2lucnljaGlsZGhlYXJ0QGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDkxMjQyNDN9._CnZtodWdfRV3kw6E2LYhStiwss6M5LJahwLGz706pY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/orders/getUserOrders",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"orders",
+								"getUserOrders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PublicUser: Pay Order by Order ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5ZWRkZTYyZjBjMjM3M2NlNjA2ZSIsImVtYWlsIjoid2lucnljaGlsZGhlYXJ0QGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiQmFieSBXaW5yeSBSb2NrYmVsbC1FbHJpYyIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDkxNzExOTl9.ENuzJdT9YY3pOg4Pjn9RFs7buEg86HIpo5CBPkTBhC8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"payment\": 0,\r\n    \"cardType\": \"Credit\",\r\n    \"cardNumber\": \"000-000-000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/orders/payOrder/624c5dc5cb37d3de0b899c84",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"orders",
+								"payOrder",
+								"624c5dc5cb37d3de0b899c84"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PublicUser: Cancel Order by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5ZWRkZTYyZjBjMjM3M2NlNjA2ZSIsImVtYWlsIjoid2lucnljaGlsZGhlYXJ0QGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDkxMjgxNDh9.nGK1pDDUzPmdhZhBTNcm0pwvvEnBGweD565YE07ItfU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/orders/cancelOrder/624ba3c74656fbf9a49823ad",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"orders",
+								"cancelOrder",
+								"624ba3c74656fbf9a49823ad"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PublicUser: Edit Order By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5NzUyMGI2OGFkYzFkNjhiZWFhNCIsImVtYWlsIjoid2lucnloZWFydEBnbWFpbC5jb20iLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjQ5MTM1NjA4fQ.6M9dw4EkbCBlsoDr4cRpCXGqQ59GM0LvzGkTEbkbfA0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quantity\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/orders/editOrder/624ba3c74656fbf9a49823ad",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"orders",
+								"editOrder",
+								"624ba3c74656fbf9a49823ad"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PublicUser: Update My details",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/users/updateUserDetails",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users",
+								"updateUserDetails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(Unavailable)PublicUser: Pay Order by Product ID",
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Login USER",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"winryheart@gmail.com\",\r\n    \"password\": \"user123\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Public Non-registered User",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Baby Winry\",\r\n    \"lastName\": \"Rockbell-Elric\",\r\n    \"email\": \"winrychildheart@gmail.com\",\r\n    \"mobileNo\": \"09123456789\",\r\n    \"password\": \"user123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:4000/users/login",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"users",
-						"login"
-					]
+				{
+					"name": "Check User Email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"winryheart14@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/users/checkEmailExists",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users",
+								"checkEmailExists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PublicPage: Retrieve All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/products",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PublicPage: Retrieve Single Product By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/products/getSingleProduct/624aa4e0481beaf473fc9d49",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"products",
+								"getSingleProduct",
+								"624aa4e0481beaf473fc9d49"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PublicPage: Retrieve Single Product By Name",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"name\": \"Screws Set-5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/products/getSingleProductByName",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"products",
+								"getSingleProductByName"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PublicPage: Get Active Products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5MzRjNzNkMzYyYjEwMjJhMjkwOSIsImVtYWlsIjoiZWR3YXJkQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTEyMjQ0MX0.fpnJTShwa2Aqxtk8JML1Oi4h7CjAzJF7NHAzAEcRddw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/products/getActiveProducts",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"products",
+								"getActiveProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PublicPage: Retrieve Single Product By Category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category\": \"Screw\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/products/getSingleProductByCategory",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"products",
+								"getSingleProductByCategory"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "AdminPage: Set User as Admin",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"url": {
-					"raw": "localhost:4000/users/updateAdmin/624a934c73d362b1022a2909",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"users",
-						"updateAdmin",
-						"624a934c73d362b1022a2909"
-					]
+			"name": "System",
+			"item": [
+				{
+					"name": "System: Delete All Orders",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/orders/deleteAllOrders",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"orders",
+								"deleteAllOrders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(Unavailable)System: Delete All Users",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/users/deleteAllUsers(locked)",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users",
+								"deleteAllUsers(locked)"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/orders/searchOrder/624bfd4921bcc1c0453a5930",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"orders",
+								"searchOrder",
+								"624bfd4921bcc1c0453a5930"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "AdminPage: Create Product",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5MzRjNzNkMzYyYjEwMjJhMjkwOSIsImVtYWlsIjoiZWR3YXJkQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTA1ODg2Nn0.pCYEUa2gtxCe3mFj6KeheKpWY6TF2MxgEMKNTS2WIMY",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Screws Set-3\",\r\n\t\"description\": \"Alloy metal screws, 4inches, 8mm, plus 2inches, 5mm\",\r\n\t\"price\": 10000\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:4000/products",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"products"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PublicPage: Retrieve All Products",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:4000/products",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"products"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PublicPage: Retrieve Single Product By ID",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:4000/products/getSingleProduct/624aa4e0481beaf473fc9d49",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"products",
-						"getSingleProduct",
-						"624aa4e0481beaf473fc9d49"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PublicPage: Retrieve Single Product By Name",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n     \"name\": \"Screws Set-3\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:4000/products/getSingleProductByName",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"products",
-						"getSingleProductByName"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "AdminPage: Update Product Details By ID",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5MzRjNzNkMzYyYjEwMjJhMjkwOSIsImVtYWlsIjoiZWR3YXJkQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTEyMjQ0MX0.fpnJTShwa2Aqxtk8JML1Oi4h7CjAzJF7NHAzAEcRddw",
-							"type": "string"
-						}
-					]
-				},
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"price\": 3000\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:4000/products/624aa4e0481beaf473fc9d49",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"products",
-						"624aa4e0481beaf473fc9d49"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "AdminPage: Get Active Products",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5MzRjNzNkMzYyYjEwMjJhMjkwOSIsImVtYWlsIjoiZWR3YXJkQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTEyMjQ0MX0.fpnJTShwa2Aqxtk8JML1Oi4h7CjAzJF7NHAzAEcRddw",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:4000/products/getActiveProducts",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"products",
-						"getActiveProducts"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PublicUser: Add order By ID",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5NzUyMGI2OGFkYzFkNjhiZWFhNCIsImVtYWlsIjoid2lucnloZWFydEBnbWFpbC5jb20iLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjQ5MTIzMjIwfQ.prTaUuvsiX2fdN8F1LHdIxap5_C4m1HKYVmafF4AdKE",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"quantity\": 2\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:4000/orders/624aa4fe481beaf473fc9d4b",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"orders",
-						"624aa4fe481beaf473fc9d4b"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "AdminPage: Get All Orders",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5MzkxNzNkMzYyYjEwMjJhMjkwYiIsImVtYWlsIjoiYWxwaG9uc2VAZ21haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjQ5MTI0MTMzfQ.ui3wRe1ae1_h4CZ6WlJVY419AFeq6TYTNTFHvwAEBz4",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:4000/orders/getAllOrders",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"orders",
-						"getAllOrders"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PublicUser2: Add Order by ID",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5ZWRkZTYyZjBjMjM3M2NlNjA2ZSIsImVtYWlsIjoid2lucnljaGlsZGhlYXJ0QGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDkxMjQyNDN9._CnZtodWdfRV3kw6E2LYhStiwss6M5LJahwLGz706pY",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"quantity\": 3\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:4000/orders/624aa4e0481beaf473fc9d49",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"orders",
-						"624aa4e0481beaf473fc9d49"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PublicUser: Get All My Orders",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5ZWRkZTYyZjBjMjM3M2NlNjA2ZSIsImVtYWlsIjoid2lucnljaGlsZGhlYXJ0QGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDkxMjQyNDN9._CnZtodWdfRV3kw6E2LYhStiwss6M5LJahwLGz706pY",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:4000/orders/getUserOrders",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"orders",
-						"getUserOrders"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "AdminPage: Product Archive",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5MzRjNzNkMzYyYjEwMjJhMjkwOSIsImVtYWlsIjoiZWR3YXJkQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0OTEyMjQ0MX0.fpnJTShwa2Aqxtk8JML1Oi4h7CjAzJF7NHAzAEcRddw",
-							"type": "string"
-						}
-					]
-				},
-				"method": "PUT",
-				"header": [],
-				"url": {
-					"raw": "localhost:4000/products/archive/624babe34c7d33fca4f87701",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"products",
-						"archive",
-						"624babe34c7d33fca4f87701"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PublicUser: Pay Order by ID",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5NzUyMGI2OGFkYzFkNjhiZWFhNCIsImVtYWlsIjoid2lucnloZWFydEBnbWFpbC5jb20iLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjQ5MTI5ODMzfQ.XJY9cwWlVeVZfcCu0y0xx49SNR04s4iBcMS3ziVb4ZA",
-							"type": "string"
-						}
-					]
-				},
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"payment\": 5000\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:4000/orders/payOrder/624ba2674656fbf9a49823a4",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"orders",
-						"payOrder",
-						"624ba2674656fbf9a49823a4"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PublicUser: Cancel Order by ID",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGE5ZWRkZTYyZjBjMjM3M2NlNjA2ZSIsImVtYWlsIjoid2lucnljaGlsZGhlYXJ0QGdtYWlsLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDkxMjgxNDh9.nGK1pDDUzPmdhZhBTNcm0pwvvEnBGweD565YE07ItfU",
-							"type": "string"
-						}
-					]
-				},
-				"method": "PUT",
-				"header": [],
-				"url": {
-					"raw": "localhost:4000/orders/cancelOrder/624ba3c74656fbf9a49823ad",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"orders",
-						"cancelOrder",
-						"624ba3c74656fbf9a49823ad"
-					]
-				}
-			},
-			"response": []
+			]
 		}
 	]
 }

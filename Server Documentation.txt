@@ -1,0 +1,47 @@
+Server Function Details
+
+
+
+Admin/Non-Registered/Registered User Access
+
+1. Register User
+	Request Body needed for user details
+	Email must have no duplicate
+
+2. Check Email
+	Request Body: email only
+	Return if email exist or available
+
+3. Retrieve All Product
+	No request body
+	Return all (active) product listed
+
+4. Retrieve Product by ID
+	Req Params includes product id
+	Return the product details matched by Id
+
+5. Retrieve Product by Name
+	Req Body includes product name only
+	Return the product details matched by req body
+
+6. Retrieve Product by Category
+	Req Body includes product category only
+	Return the product details matched by req body
+
+
+
+Admin/Registered User Access
+
+1. Login User
+	Req body includes email and password only
+
+2. Add order By Product ID
+	Req params: product id
+	Req body:
+		cardType
+		cardNumber
+		payment
+
+3. Get all Orders by User Id
+
+

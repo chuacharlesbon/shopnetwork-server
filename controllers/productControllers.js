@@ -16,6 +16,7 @@ module.exports.addProduct = (req, res) => {
 	name: req.body.name,
 	description: req.body.description,
 	price: req.body.price,
+	stockAvailable: req.body.stockAvailable
 	});
 
 
@@ -89,7 +90,10 @@ module.exports.updateProductDetails = (req, res) => {
 	let updates = {
 		name: req.body.name,
 		description: req.body.description,
-		price: req.body.price
+		price: req.body.price,
+		stockAvailable: req.body.stockAvailable,
+		remarks: req.body.remarks,
+		category: req.body.category
 	}
 
 	Product.findByIdAndUpdate(req.params.id, updates, {new:true})
@@ -163,6 +167,106 @@ module.exports.deleteAllProducts = (req, res) => {
 	.catch(error => res.send(error))
 }
 */
+
+
+
+module.exports.syncOrders = (req, res) => {
+	console.log(req.params.id)
+	
+
+	Order.find({"productId": req.params.id, "balance": 0})
+	.then(result => {
+	if(result.length === 0){
+		return res.send(`No completed orders for this Product`)
+	}else {
+		let order = result
+
+		
+		order.forEach(function(order){
+
+			Product.findById(req.params.id)
+			.then(product => {
+			console.log(product)
+			/*const newRemarks = product.remarks
+
+			const addRemarks = newRemarks.push(`Product has been sync with Order Id ${order._id}`)
+*/			let newDate = new Date()
+			
+			let updates = {
+				stockAvailable: product.stockAvailable-order.quantity,
+				remarks: `Product has been sync ${newDate}`
+			}
+
+			Product.findByIdAndUpdate(req.params.id, updates, {new:true})
+			.then(result => res.send(result))
+			.catch(error => res.send(error))
+			})
+			.catch(error => res.send(error))
+		})
+		//return res.send(`${result[1].quantity}`)
+	}
+	})
+	.catch(error => res.send(error))
+
+
+
+}
+
+
+
+//Admin Sync order to Product By Product ID
+/*module.exports.syncOrders = (req, res) => {
+	console.log(req.params.id)
+
+	Order.findOne({"productId": req.params.id, "balance": 0})
+	.then(order => {
+	if(order.length === 0){
+		return res.send(`No completed orders for this Product`)
+	}else{
+
+	const orderQuantity = order.quantity
+
+	Product.findById(req.params.id)
+	.then(result => {
+		let updates = {
+			stockAvailable: result.stockAvailable-orderQuantity
+		}
+
+	Product.findByIdAndUpdate(req.params.id, updates, {new:true})
+	.then(result => res.send(result))
+	.catch(error => res.send(error))
+
+	})
+	.catch(error => res.send(error))
+
+	let order = result
+	let updates = {
+		stockAvailable: .stockAvailable-order.quantity
+		}
+
+	Product.findByIdAndUpdate(req.params.id, updates, {new:true})
+	.then(result => res.send(result))
+	.catch(error => res.send(error))
+}
+	})
+	.catch(error => res.send(error))
+}*/
+
+//Search single product by keyword public
+module.exports.getSingleProductByCategory = (req, res) => {
+	console.log(req.body)
+	Product.find({category: {$regex: req.body.category, $options: '$i'}})
+	.then(result => {
+		//result.length because the result returned by the find method is array type
+		if(result.length === 0){
+			return res.send(`No Product ${req.body.category} found. Please check your keyword`)
+		}else{
+			return res.send(result)
+		}
+	})
+	.catch(error => res.send(error))
+
+}
 
 
 

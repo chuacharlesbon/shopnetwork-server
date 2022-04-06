@@ -110,8 +110,17 @@ module.exports.updateUserDetails = (req, res) => {
 	.then(updatedUser => res.send(updatedUser))
 	.catch(error => res.send(error))
 
+}
 
+//System Delete all users
+module.exports.deleteAllUsers = (req, res) => {
+	User.deleteMany({})
+	.then(result => res.send(result))
+	.catch(error => res.send(error))
 
 }
+
+
+
 
 

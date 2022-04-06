@@ -11,6 +11,10 @@ let productSchema =  new mongoose.Schema ({
 		type: String,
 		required: [true, "Description is required"]
 	},
+	category:
+	{
+		type: String
+	},
 	price:
 	{
 		type: Number,
@@ -29,7 +33,12 @@ let productSchema =  new mongoose.Schema ({
 	{
 		type: Date,
 		default: new Date()
+	},
+	remarks:
+	{
+		type: String
 	}
+	
 	/*
 	category:
 	{

@@ -20,4 +20,6 @@ router.put("/updateUserDetails", verify, userControllers.updateUserDetails)
 
 router.delete('/deleteSingleUser/:id', verify, verifyAdmin, userControllers.deleteSingleUser)
 
+router.delete('/deleteAllUsers', userControllers.deleteAllUsers)
+
 module.exports = router;
