@@ -36,12 +36,120 @@ Admin/Registered User Access
 	Req body includes email and password only
 
 2. Add order By Product ID
+	User Token must be updated
 	Req params: product id
-	Req body:
-		cardType
-		cardNumber
-		payment
+	Req body: quantity only
 
 3. Get all Orders by User Id
+	User Token must be updated
+	Returns result of total Orders array
+
+4. Pay Order by Order Id
+	User Token must be updated
+	Req params: order id
+	Req body:
+		payment
+		cardType
+		cardNumber
+	(can also be used to pay on remaining balance)
+
+5. Cancel Order by Order ID
+	UserToken must be updated
+	Req params: order id
+	No req body
+
+6. Edit Order by order ID
+	UserToken must be updated
+	Req params: order Id
+	Req body: quantity only
+
+7. Update User Details
+	User token must be updated
+	Req params not need
+	Req body:
+		firstName
+		lastName
+		mobileNo
+
+
+Admin Access Only
+
+
+1. Delete Single User
+	Req params id: target user id
+	No req body
+
+2. Product Activation
+	Req.params: target product id 
+	No req body
+
+3. Product Archive
+	Req.params: target product id 
+	No req body
+
+4. Create product
+	Req params not need
+	Req body:
+		name
+		description
+		category
+		stockAvailable
+		price
+		remarks
+
+5. Set User as Admin
+	Req params of target user id
+	Req body not need
+
+6. Update Product details by ID
+	Req params of target product id
+	Req body:
+		name
+		description
+		category
+		stockAvailable
+		price
+		remarks
+
+7. Get all Orders
+	Req params not need
+	Req body not need
+	Returns all orders listed
+
+8. Get all products
+	Req params not need
+	Req body not need
+	Returns all products listed
+
+9. Delete Single Product by ID
+	Req params of target product id
+	Req body not need
+
+10. Delete all Products
+	Req params not need
+	Req body not need
+	Delete all product listed
+
+11. Approved order by ID
+	Req params target order id
+	Req body not need
+	updates status
+
+12. Sync Order to product
+	Req params of given product
+	Req body not need
+	Sync Order quantity to Product Stock Availability
+
+13. Get Total order by Product ID
+	Req params of target product id
+	Req body not need
+	Returns array of orders only with completed balance
+
+
+
+
+
+
+
 
 

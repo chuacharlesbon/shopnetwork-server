@@ -16,7 +16,9 @@ module.exports.addProduct = (req, res) => {
 	name: req.body.name,
 	description: req.body.description,
 	price: req.body.price,
-	stockAvailable: req.body.stockAvailable
+	stockAvailable: req.body.stockAvailable,
+	category: req.body.category,
+	remarks: req.body.remarks
 	});
 
 
@@ -169,7 +171,7 @@ module.exports.deleteAllProducts = (req, res) => {
 */
 
 
-
+//Admin Sync order to product quantity main code
 module.exports.syncOrders = (req, res) => {
 	console.log(req.params.id)
 	
@@ -180,17 +182,14 @@ module.exports.syncOrders = (req, res) => {
 		return res.send(`No completed orders for this Product`)
 	}else {
 		let order = result
-
+		
 		
 		order.forEach(function(order){
 
 			Product.findById(req.params.id)
 			.then(product => {
 			console.log(product)
-			/*const newRemarks = product.remarks
-
-			const addRemarks = newRemarks.push(`Product has been sync with Order Id ${order._id}`)
-*/			let newDate = new Date()
+			let newDate = new Date()
 			
 			let updates = {
 				stockAvailable: product.stockAvailable-order.quantity,
@@ -203,15 +202,11 @@ module.exports.syncOrders = (req, res) => {
 			})
 			.catch(error => res.send(error))
 		})
-		//return res.send(`${result[1].quantity}`)
+		
 	}
 	})
 	.catch(error => res.send(error))
-
-
-
 }
-
 
 
 //Admin Sync order to Product By Product ID

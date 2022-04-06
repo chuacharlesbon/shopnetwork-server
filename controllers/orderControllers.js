@@ -132,16 +132,18 @@ module.exports.editOrder = (req, res) => {
 
 	console.log(req.user.id)
 	console.log(req.params.id)
+	console.log(req.body)
 
 	Order.findById(req.params.id)
 	.then(result => {
 	if (result.userId === req.user.id ){
-	let itemPrice = result.price
+	let itemPrice = result.totalPrice/result.quantity
 	let total = req.body.quantity*itemPrice
 
 	let updates = {
 		quantity: req.body.quantity,
-		totalPrice: total
+		totalPrice: total,
+		balance: total
 	}
 	Order.findByIdAndUpdate(req.params.id, updates, {new:true})
 	.then(user => res.send(user))
