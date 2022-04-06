@@ -12,6 +12,7 @@ module.exports.addOrder = (req, res) => {
 	Product.findById(req.params.id)
 	.then(result => {
 	let itemPrice = result.price
+	let itemName = result.name
 
 	let total = req.body.quantity*itemPrice
 
@@ -20,6 +21,7 @@ module.exports.addOrder = (req, res) => {
 		userId: req.user.id,
 		username: req.user.username,
 		productId: req.params.id,
+		productName: itemName,
 		quantity: req.body.quantity,
 		totalPrice: total,
 		balance: total

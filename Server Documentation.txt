@@ -133,7 +133,7 @@ Admin Access Only
 11. Approved order by ID
 	Req params target order id
 	Req body not need
-	updates status
+	updates status product for shipping
 
 12. Sync Order to product
 	Req params of given product

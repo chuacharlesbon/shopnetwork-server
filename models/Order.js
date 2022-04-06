@@ -16,6 +16,9 @@ let orderSchema =  new mongoose.Schema ({
 			type: String,
 			required: [true, "Product ID is required"]
 		},
+		productName:  {
+			type: String
+		},
 		quantity:  {
 			type: Number,
 			required: [true, "Quantity is required"]
