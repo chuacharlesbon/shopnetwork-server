@@ -30,7 +30,7 @@ module.exports.addProduct = (req, res) => {
 
 //User Search all products in the lists
 module.exports.getAllProducts = (req, res) => {
-	Product.find({isActive: true})
+	Product.find({isActive: true}/*, {"createdOn": 0, "isActive": 0, "__v": 0}*/)
 	.then(result => res.send(result))
 	.catch(error => res.send(error))
 
@@ -38,7 +38,7 @@ module.exports.getAllProducts = (req, res) => {
 
 //ADMIN Search all products in the lists
 module.exports.getAllProductsLists = (req, res) => {
-	Product.find({})
+	Product.find({})/*.select({"createdOn": 0, "isActive": 0, "__v": 0})*/
 	.then(result => res.send(result))
 	.catch(error => res.send(error))
 

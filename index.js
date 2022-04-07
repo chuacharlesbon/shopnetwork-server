@@ -24,7 +24,7 @@ db.on('error', console.error.bind(console, 'Connection Error'));
 
 db.once('open', () => console.log('Connected to MongoDB'));
 
-const port = 4000;
+const port = process.env.PORT || 4000;
 
 app.use(express.json());
 
@@ -37,3 +37,5 @@ app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
 
 app.listen(port, () => console.log (`Server is now running at port ${port}`))
+
+https://immense-lake-17505.herokuapp.com/ 
