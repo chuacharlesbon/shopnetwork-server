@@ -47,3 +47,28 @@ module.exports.verifyAdmin = (req, res, next) => {
 
 }
 
+module.exports.decode = (token) => {
+
+	if(typeof token !== "undefined"){
+
+		token = token.slice(7, token.length);
+
+		return jwt.verify(token, secret, (err, data) => {
+
+			if(err){
+
+				return null
+
+			} else {
+
+				return jwt.decode(token, {complete: true}).payload
+			} 
+		})
+
+	} else {
+		
+		return null
+	}
+}
+
+

@@ -18,7 +18,9 @@ module.exports.addProduct = (req, res) => {
 	price: req.body.price,
 	stockAvailable: req.body.stockAvailable,
 	category: req.body.category,
-	remarks: req.body.remarks
+	remarks: req.body.remarks,
+	remark: req.body.remark,
+	source: req.body.source
 	});
 
 
@@ -31,6 +33,13 @@ module.exports.addProduct = (req, res) => {
 //User Search all products in the lists
 module.exports.getAllProducts = (req, res) => {
 	Product.find({isActive: true}/*, {"createdOn": 0, "isActive": 0, "__v": 0}*/)
+	.then(result => res.send(result))
+	.catch(error => res.send(error))
+
+}
+
+module.exports.categoryFood = (req, res) => {
+	Product.find({category: {$regex: "food", $options: '$i'}}/*, {"createdOn": 0, "isActive": 0, "__v": 0}*/)
 	.then(result => res.send(result))
 	.catch(error => res.send(error))
 
@@ -95,7 +104,9 @@ module.exports.updateProductDetails = (req, res) => {
 		price: req.body.price,
 		stockAvailable: req.body.stockAvailable,
 		remarks: req.body.remarks,
-		category: req.body.category
+		remark: req.body.remark,
+		category: req.body.category,
+		source: req.body.source
 	}
 
 	Product.findByIdAndUpdate(req.params.id, updates, {new:true})
@@ -193,7 +204,7 @@ module.exports.syncOrders = (req, res) => {
 			
 			let updates = {
 				stockAvailable: product.stockAvailable-order.quantity,
-				remarks: `Product has been sync ${newDate}`
+				remark: `Product has been sync ${newDate}`
 			}
 
 			Product.findByIdAndUpdate(req.params.id, updates, {new:true})

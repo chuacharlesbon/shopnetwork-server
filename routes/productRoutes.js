@@ -20,6 +20,8 @@ router.get('/getSingleProductByName', productControllers.getSingleProductByName)
 
 router.get('/getSingleProductByCategory', productControllers.getSingleProductByCategory)
 
+router.get('/categoryFood', productControllers.categoryFood)
+
 router.put('/:id', verify, verifyAdmin, productControllers.updateProductDetails)
 
 router.put('/archive/:id', verify, verifyAdmin, productControllers.productArchive)

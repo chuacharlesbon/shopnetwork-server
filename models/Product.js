@@ -37,6 +37,14 @@ let productSchema =  new mongoose.Schema ({
 	remarks:
 	{
 		type: String
+	},
+	remark:
+	{
+		type: String
+	},
+	source:
+	{
+		type: String
 	}
 	
 	/*

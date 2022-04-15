@@ -24,7 +24,21 @@ let userSchema = new mongoose.Schema({
 	isAdmin: {
 		type: Boolean,
 		default: false
-	}
+	}/*,
+	orders: [
+		{
+			productName: String
+		},
+		{
+			quantity: Number
+		},
+		{
+			dateOrder: {
+				type: Date,
+				default: new Date()
+			}
+		}
+	]*/
 	/*buyerOrSeller : {
 		type: String,
 		required: [true, "Indicate if you are a Buyer or Seller"]

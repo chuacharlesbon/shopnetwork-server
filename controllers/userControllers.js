@@ -40,8 +40,20 @@ module.exports.registerUser = (req, res) => {
 	})
 
 	newUser.save()
+	/*return newUser.save()
+	.then((user, error) => {
+		if (error){
+			return false
+		}else {
+			return user
+		}
+	})*/
 	.then(user => res.send(user))
 	.catch(error => res.send(error))
+	/*.catch(error => {
+		console.log(error)
+		return false
+	})*/
 
 };
 
@@ -58,6 +70,7 @@ module.exports.loginUser = (req, res) => {
 			const isPasswordCorrect = bcrypt.compareSync(req.body.password, foundUser.password)
 
 			if(isPasswordCorrect){
+				//res.send({accessToken: auth.createAccessToken(foundUser)})
 				return res.send({accessToken: auth.createAccessToken(foundUser)})
 			}else {
 				return res.send("Password is incorrect")
@@ -66,6 +79,37 @@ module.exports.loginUser = (req, res) => {
 	})
 	.catch(error => res.send(error))
 }
+
+
+module.exports.getProfile = (data) => {
+
+	return User.findById(data.userId).then(result => {
+
+		// Changes the value of the user's password to an empty string when returned to the frontend
+		// Not doing so will expose the user's password which will also not be needed in other parts of our application
+		// Unlike in the "register" method, we do not need to call the mongoose "save" method on the model because we will not be changing the password of the user in the database but only the information that we will be sending back to the frontend application
+		result.password = "";
+
+		// Returns the user information with the password as an empty string
+		return result;
+
+	});
+
+};
+
+/*module.exports.retrieveUserDetails = (req, res) => {
+	const userData = auth.decode(req.headers.authorization)
+	let userId = userData.id
+
+	return User.findById(.userId).then(result => {
+		result.password = ""
+		return 
+	})
+
+
+}*/
+
+
 
 
 //ADMIN sets USER to Admin
