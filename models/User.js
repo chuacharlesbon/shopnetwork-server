@@ -21,6 +21,10 @@ let userSchema = new mongoose.Schema({
 		type: String,
 		required: [true, "Mobile Number is required"]
 	},
+	deliveryAdd: {
+		type: String,
+		required: [true, "Address is required"]
+	},
 	isAdmin: {
 		type: Boolean,
 		default: false

@@ -32,4 +32,8 @@ router.delete('/deleteSingleUser/:id', verify, verifyAdmin, userControllers.dele
 
 router.delete('/deleteAllUsers', userControllers.deleteAllUsers)
 
+router.get('/getDetails', verify, userControllers.getDetails)
+
+router.get('/:id', verify, userControllers.findUser)
+
 module.exports = router;

@@ -25,6 +25,43 @@ module.exports.addOrder = (req, res) => {
 		quantity: req.body.quantity,
 		totalPrice: total,
 		balance: total
+		//status for carts is pending value
+	})
+
+	newOrder.save()
+	.then(user => res.send(user))
+	.catch(error => res.send(error))
+	})
+	.catch(error => res.send(error))
+
+}
+
+
+module.exports.orderFull = (req, res) => {
+	console.log(req.user)
+	console.log(req.params.id)
+
+	Product.findById(req.params.id)
+	.then(result => {
+	let itemPrice = result.price
+	let itemName = result.name
+
+	let total = req.body.quantity*itemPrice
+
+	let newOrder = new Order({
+
+		userId: req.user.id,
+		username: req.user.username,
+		productId: req.params.id,
+		productName: itemName,
+		quantity: req.body.quantity,
+		totalPrice: total,
+		balance: total-req.body.payment,
+		payment: req.body.payment,
+		cardType: req.body.cardType,
+		cardNumber: req.body.cardNumber,
+		remarks: "Payment has been confirmed. Ready for shipping",
+		status: "For Delivery"
 	})
 
 	newOrder.save()
@@ -38,13 +75,27 @@ module.exports.addOrder = (req, res) => {
 //User get All his/her orders
 module.exports.getUserOrders = (req, res) => {
 	Order.find({userId: req.user.id})
-	.then(result => {
-		if(result.length === 0){
-			return res.send(`Hello! ${req.user.username}. You have no pending orders`)
+	.then(result => res.send(result))
+		/*if(result.length === 0){
+			console.log(result)
+			return false
 		}else{
 			return res.send(result)
-		}
-	})
+		}*/
+	
+	.catch(error => res.send(error))
+}
+
+module.exports.getCart = (req, res) => {
+	Order.find({userId: req.user.id, "status": "Pending" })
+	.then(result => res.send(result))
+		/*if(result.length === 0){
+			console.log(result)
+			return false
+		}else{
+			return res.send(result)
+		}*/
+	
 	.catch(error => res.send(error))
 }
 
@@ -239,4 +290,10 @@ module.exports.getTotalOrdersByProductId = (req, res) => {
 
 }
 
+module.exports.thisOrder = (req, res) => {
+	Order.find({ _id: req.params.id})
+	.then(result => res.send(result))
+	.catch(error => res.send(error))
+
+}
 

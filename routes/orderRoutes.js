@@ -10,6 +10,12 @@ const {verify, verifyAdmin} = auth;
 
 router.post('/:id', verify, orderControllers.addOrder)
 
+router.get('/thisOrder/:id', verify, orderControllers.thisOrder)
+
+router.get('/getCart', verify, orderControllers.getCart)
+
+router.post('/orderFull/:id', verify, orderControllers.orderFull)
+
 router.get('/getUserOrders', verify, orderControllers.getUserOrders)
 
 router.get('/getAllorders', verify, verifyAdmin, orderControllers.getAllOrders)

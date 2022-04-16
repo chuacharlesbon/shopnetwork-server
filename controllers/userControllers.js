@@ -36,7 +36,8 @@ module.exports.registerUser = (req, res) => {
 	lastName: req.body.lastName,
 	email: req.body.email,
 	mobileNo: req.body.mobileNo,
-	password: hashedPW
+	password: hashedPW,
+	deliveryAdd: req.body.deliveryAdd
 	})
 
 	newUser.save()
@@ -147,7 +148,8 @@ module.exports.updateUserDetails = (req, res) => {
 	let updates = {
 		firstName: req.body.firstName,
 		lastName: req.body.lastName,
-		mobileNo: req.body.mobileNo
+		mobileNo: req.body.mobileNo,
+		deliveryAdd: req.body.deliveryAdd
 	}
 
 	User.findByIdAndUpdate(req.user.id, updates, {new:true})
@@ -164,7 +166,19 @@ module.exports.deleteAllUsers = (req, res) => {
 
 }
 
+module.exports.getDetails = (req, res) => {
+	console.log(req.user.id)
+	User.find({ _id: req.user.id})
+	.then(result => res.send(result))
+	.catch(error => res.send(error))
+}
 
+module.exports.findUser = (req, res) => {
+	console.log(req.params.id)
+	User.findOne({ _id: req.params.id})
+	.then(result => res.send(result))
+	.catch(error => res.send(error))
+}
 
 
 
