@@ -183,7 +183,7 @@ module.exports.deleteAllProducts = (req, res) => {
 
 
 //Admin Sync order to product quantity main code
-module.exports.syncOrders = (req, res) => {
+/*module.exports.syncOrders = (req, res) => {
 	console.log(req.params.id)
 	
 
@@ -195,9 +195,9 @@ module.exports.syncOrders = (req, res) => {
 		let order = result
 		
 		
-		order.forEach(function(order){
+		order.map(async function(order){
 
-			Product.findById(req.params.id)
+			let updatedProduct = await Product.findById(req.params.id)
 			.then(product => {
 			console.log(product)
 			let newDate = new Date()
@@ -208,17 +208,35 @@ module.exports.syncOrders = (req, res) => {
 			}
 
 			Product.findByIdAndUpdate(req.params.id, updates, {new:true})
-			.then(result => res.send(result))
 			.catch(error => res.send(error))
 			})
 			.catch(error => res.send(error))
+
+
+
+			let updatedOrder = await Order.findById(order._id)
+			.then(oneorder => {
+				console.log(oneorder)
+				let updates = {
+					remarks: "Order has been sync with Stock quantity"
+				}
+			Order.findByIdAndUpdate(order._id, updates, {new:true})
+			.catch(error => res.send(error))
+			})
+			.catch(error => res.send(error))
+
+			
+
 		})
+
+
 		
 	}
+	return "Sync Successful"
 	})
 	.catch(error => res.send(error))
 }
-
+*/
 
 //Admin Sync order to Product By Product ID
 /*module.exports.syncOrders = (req, res) => {
@@ -274,6 +292,26 @@ module.exports.getSingleProductByCategory = (req, res) => {
 
 }
 
+module.exports.getSingleProductParams = (req, res) => {
+	console.log(req.params);
+	Product.find({name: {$regex: req.params.id, $options: '$i'}})
+	.then(result => {
+		if(result !== null){
+			return res.send(result)
+		} else {
+			return res.send(`Product Name ${req.params.id} doesn't exist`)
 
+		}
+	})
+
+	/*
+	or use simple code:
+	.then(result => res.send(result))
+	*/
+
+
+	.catch(error => res.send(error))
+
+};
 
 

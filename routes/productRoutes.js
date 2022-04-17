@@ -16,13 +16,15 @@ router.get('/getAllProductsLists', verify, verifyAdmin, productControllers.getAl
 
 router.get('/getSingleProduct/:id', productControllers.getSingleProduct)
 
+router.get('/getSingleProductParams/:id', productControllers.getSingleProductParams)
+
 router.get('/getSingleProductByName', productControllers.getSingleProductByName)
 
 router.get('/getSingleProductByCategory', productControllers.getSingleProductByCategory)
 
 router.get('/categoryFood', productControllers.categoryFood)
 
-router.put('/:id', verify, verifyAdmin, productControllers.updateProductDetails)
+router.put('/:id', verify, productControllers.updateProductDetails)
 
 router.put('/archive/:id', verify, verifyAdmin, productControllers.productArchive)
 
@@ -32,7 +34,7 @@ router.get('/getActiveProducts', productControllers.getActiveProducts)
 
 router.delete('/deleteSingleProduct/:id', verify, verifyAdmin, productControllers.deleteSingleProduct)
 
-router.put('/syncOrders/:id', productControllers.syncOrders)
+//router.put('/syncOrders/:id', verify, productControllers.syncOrders)
 
 /*
 Route Locked:

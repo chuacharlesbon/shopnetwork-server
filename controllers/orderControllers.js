@@ -74,7 +74,7 @@ module.exports.orderFull = (req, res) => {
 
 //User get All his/her orders
 module.exports.getUserOrders = (req, res) => {
-	Order.find({userId: req.user.id})
+	Order.find({userId: req.user.id, dateCancelled: ''})
 	.then(result => res.send(result))
 		/*if(result.length === 0){
 			console.log(result)
