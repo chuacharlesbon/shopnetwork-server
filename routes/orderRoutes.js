@@ -32,7 +32,9 @@ router.put('/approveOrder/:id', verify, verifyAdmin, orderControllers.approveOrd
 
 router.delete('/deleteAllOrders', orderControllers.deleteAllOrders)
 
-router.get('/searchOrder/:id', orderControllers.searchOrder)
+router.get('/searchOrder/:id', verify, verifyAdmin, orderControllers.searchOrder)
+
+router.get('/searchOrderId/:id', verify, verifyAdmin, orderControllers.searchOrderId)
 
 router.get('/getTotalOrdersByProductId/:id', orderControllers.getTotalOrdersByProductId)
 

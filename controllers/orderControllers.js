@@ -74,7 +74,7 @@ module.exports.orderFull = (req, res) => {
 
 //User get All his/her orders
 module.exports.getUserOrders = (req, res) => {
-	Order.find({userId: req.user.id, dateCancelled: ''})
+	Order.find({userId: req.user.id, payment: {$gt: 0}, dateCancelled: ''})
 	.then(result => res.send(result))
 		/*if(result.length === 0){
 			console.log(result)
@@ -297,3 +297,9 @@ module.exports.thisOrder = (req, res) => {
 
 }
 
+module.exports.searchOrderId = (req, res) => {
+	Order.find({_id: req.params.id})
+	.then(result => res.send(result))
+	.catch(error => res.send(error))
+
+}
