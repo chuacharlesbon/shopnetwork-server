@@ -10,6 +10,8 @@ const productRoutes = require('./routes/productRoutes')
 
 const orderRoutes = require('./routes/orderRoutes')
 
+const messageRoutes = require('./routes/messageRoutes')
+
 const app = express();
 
 mongoose.connect("mongodb+srv://admin_chua:batch169@batch169chua.g8jtg.mongodb.net/ecommerceAPI169?retryWrites=true&w=majority",
@@ -29,6 +31,8 @@ const port = process.env.PORT || 4000;
 app.use(express.json());
 
 app.use(cors());
+
+app.use('/messages', messageRoutes);
 
 app.use('/users', userRoutes);
 

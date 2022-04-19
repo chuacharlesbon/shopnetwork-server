@@ -14,9 +14,9 @@ module.exports.checkEmailExists = ( req, res) => {
 	User.findOne({email: req.body.email})
 	.then(result => {
 		if(result !== null && result.name === req.body.username){
-			return res.send(`The email ${req.body.email} found and already registered. Please use new email`)
+			return false/*res.send(`The email ${req.body.email} found and already registered. Please use new email`)*/
 		} else {
-			return res.send(`Email ${req.body.email} is available. You can now proceed to User Registration Page`)
+			return true/*res.send(`Email ${req.body.email} is available. You can now proceed to User Registration Page`)*/
 
 		}
 	})
