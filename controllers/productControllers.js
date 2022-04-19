@@ -39,7 +39,21 @@ module.exports.getAllProducts = (req, res) => {
 }
 
 module.exports.categoryFood = (req, res) => {
-	Product.find({category: {$regex: "food", $options: '$i'}}/*, {"createdOn": 0, "isActive": 0, "__v": 0}*/)
+	Product.find({category: {$regex: "food", $options: '$i'}, isActive: true}/*, {"createdOn": 0, "isActive": 0, "__v": 0}*/)
+	.then(result => res.send(result))
+	.catch(error => res.send(error))
+
+}
+
+module.exports.categoryClothing = (req, res) => {
+	Product.find({category: {$regex: "clothing", $options: '$i'}, isActive: true}/*, {"createdOn": 0, "isActive": 0, "__v": 0}*/)
+	.then(result => res.send(result))
+	.catch(error => res.send(error))
+
+}
+
+module.exports.categoryMachines = (req, res) => {
+	Product.find({category: {$regex: "machines", $options: '$i'}, isActive: true}/*, {"createdOn": 0, "isActive": 0, "__v": 0}*/)
 	.then(result => res.send(result))
 	.catch(error => res.send(error))
 

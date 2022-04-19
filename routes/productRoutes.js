@@ -24,6 +24,10 @@ router.get('/getSingleProductByCategory', productControllers.getSingleProductByC
 
 router.get('/categoryFood', productControllers.categoryFood)
 
+router.get('/categoryClothing', productControllers.categoryClothing)
+
+router.get('/categoryMachines', productControllers.categoryMachines)
+
 router.put('/:id', verify, productControllers.updateProductDetails)
 
 router.put('/archive/:id', verify, verifyAdmin, productControllers.productArchive)
