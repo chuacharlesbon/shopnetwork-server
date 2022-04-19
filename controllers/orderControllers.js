@@ -168,7 +168,8 @@ module.exports.cancelOrder = (req, res) => {
 		totalPrice: 0,
 		status: "Cancelled by User",
 		dateCancelled: new Date(),
-		remarks: "If payment was made, refund will be process accordingly"
+		remarks: "If payment was made, refund will be process accordingly",
+		admin: "Waiting for Approval"
 	}
 	Order.findByIdAndUpdate(req.params.id, updates, {new:true})
 	.then(user => res.send(user))
@@ -190,13 +191,15 @@ module.exports.editOrder = (req, res) => {
 	Order.findById(req.params.id)
 	.then(result => {
 	if (result.userId === req.user.id ){
-	let itemPrice = result.totalPrice/result.quantity
-	let total = req.body.quantity*itemPrice
+	/*let itemPrice = result.totalPrice/result.quantity
+	let total = req.body.quantity*itemPrice*/
 
 	let updates = {
-		quantity: req.body.quantity,
+		admin: req.body.admin,
+		byAdmin: req.body.byAdmin
+		/*quantity: req.body.quantity,
 		totalPrice: total,
-		balance: total
+		balance: total*/
 	}
 	Order.findByIdAndUpdate(req.params.id, updates, {new:true})
 	.then(user => res.send(user))
@@ -217,7 +220,7 @@ module.exports.approveOrder = (req, res) => {
 		.then(order => {
 			console.log(order)
 			let updates = {
-				status: "Product already for Shipping"
+				admin: "Refund request approved. Process might take 3-5 banking days."
 			}
 			Order.findByIdAndUpdate(req.params.id, updates, {new:true})
 			.then(user => res.send(user))
@@ -302,4 +305,17 @@ module.exports.searchOrderId = (req, res) => {
 	.then(result => res.send(result))
 	.catch(error => res.send(error))
 
+}
+
+module.exports.getUserTransactions = (req, res) => {
+	Order.find({userId: req.user.id, balance: 0})
+	.then(result => res.send(result))
+		/*if(result.length === 0){
+			console.log(result)
+			return false
+		}else{
+			return res.send(result)
+		}*/
+	
+	.catch(error => res.send(error))
 }

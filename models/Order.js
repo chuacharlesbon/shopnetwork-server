@@ -62,6 +62,16 @@ let orderSchema =  new mongoose.Schema ({
 		{
 			type: Date
 		}
+		,
+		admin:
+		{
+			type: String
+		},
+		byAdmin:
+		{
+			type: String
+		}
+
 });
 
 module.exports = mongoose.model("Order", orderSchema)

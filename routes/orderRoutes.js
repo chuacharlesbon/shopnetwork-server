@@ -18,13 +18,15 @@ router.post('/orderFull/:id', verify, orderControllers.orderFull)
 
 router.get('/getUserOrders', verify, orderControllers.getUserOrders)
 
+router.get('/getUserTransactions', verify, orderControllers.getUserTransactions)
+
 router.get('/getAllorders', verify, verifyAdmin, orderControllers.getAllOrders)
 
 router.put('/payOrder/:id', verify, orderControllers.payOrder)
 
 router.put('/cancelOrder/:id', verify, orderControllers.cancelOrder)
 
-router.put('/editOrder/:id', verify, orderControllers.editOrder)
+router.put('/editOrder/:id', verify, verifyAdmin, orderControllers.editOrder)
 
 router.put('/approveOrder/:id', verify, verifyAdmin, orderControllers.approveOrder)
 
