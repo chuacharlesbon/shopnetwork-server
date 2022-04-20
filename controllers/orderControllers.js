@@ -164,7 +164,7 @@ module.exports.cancelOrder = (req, res) => {
 	if (result.userId === req.user.id ){
 
 	let updates = {
-		quantity: 0,
+		//quantity: 0,
 		totalPrice: 0,
 		status: "Cancelled by User",
 		dateCancelled: new Date(),

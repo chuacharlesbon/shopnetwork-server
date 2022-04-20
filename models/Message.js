@@ -23,6 +23,15 @@ let messageSchema =  new mongoose.Schema ({
 	{
 		type: String,
 		required: [true, "Content is required"]
+	},
+	read:
+	{
+		type: String,
+		default: "Unread"
+	},
+	view:
+	{
+		type: Date
 	}
 
 });
