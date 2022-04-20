@@ -10,11 +10,17 @@ const messageControllers = require("../controllers/messageControllers")
 
 router.post('/',  messageControllers.createMessage)
 
+router.post('/newMessage', verify,  messageControllers.userSendMessage)
+
 router.get('/', verify, verifyAdmin, messageControllers.adminViewMessage)
 
 router.get('/readMessages', verify, verifyAdmin, messageControllers.adminViewRead)
 
-router.put('/markRead/:id' , verify, verifyAdmin, messageControllers.markRead)
+router.get('/readClearMessages', verify, messageControllers.userViewClear)
+
+router.get('/userMessages', verify, messageControllers.userViewMessage)
+
+router.put('/markRead/:id' , verify, messageControllers.markRead)
 
 
 module.exports = router;

@@ -71,3 +71,18 @@ module.exports.markRead = (req, res) => {
 	.catch(error => res.send(error))
 
 }
+
+module.exports.userViewMessage = (req, res) => {
+	console.log(req.user.email)
+
+	Message.find({receiver: req.user.email, read: "Unread"})
+	.then(result => res.send(result))
+	.catch(error => res.send(error))
+}
+
+module.exports.userViewClear = (req, res) => {
+
+	Message.find({receiver: req.user.email, read: "Read"})
+	.then(result => res.send(result))
+	.catch(error => res.send(error))
+}
