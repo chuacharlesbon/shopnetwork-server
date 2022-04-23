@@ -14,11 +14,14 @@ module.exports.createMessage = (req, res) => {
 
 	console.log(req.body);
 
+	let newdate = new Date()
+
 	let newMessage = new Message({
 	
 	sender: req.body.sender,
 	receiver: req.body.receiver,
-	content: req.body.content
+	content: req.body.content,
+	dateSent: `${newdate}`
 
 	});
 
@@ -31,11 +34,15 @@ module.exports.createMessage = (req, res) => {
 module.exports.userSendMessage = (req, res ) => {
 
 	console.log(req.body)
+
+	let newdate = new Date()
+
 	let newMessage = new Message({
 
 		sender: req.user.email,
 		receiver: req.body.receiver,
-		content: req.body.content
+		content: req.body.content,
+		dateSent: `${newdate}`
 	});
 	newMessage.save()
 	.then(user => res.send(user))
@@ -60,10 +67,11 @@ module.exports.adminViewRead = (req, res) => {
 
 module.exports.markRead = (req, res) => {
 	console.log(req.params.id);
+	let newdate = new Date()
 
 	let updates = {
 		read: "Read",
-		view: new Date()
+		view: `${newdate}`
 	}
 
 	Message.findByIdAndUpdate(req.params.id, updates, {new:true})
