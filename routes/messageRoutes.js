@@ -22,5 +22,7 @@ router.get('/userMessages', verify, messageControllers.userViewMessage)
 
 router.put('/markRead/:id' , verify, messageControllers.markRead)
 
+router.delete('/delete/:id' , verify, messageControllers.deleteMessage)
+
 
 module.exports = router;

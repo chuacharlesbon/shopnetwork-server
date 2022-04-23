@@ -94,3 +94,10 @@ module.exports.userViewClear = (req, res) => {
 	.then(result => res.send(result))
 	.catch(error => res.send(error))
 }
+
+module.exports.deleteMessage = (req, res) => {
+	Message.deleteOne({_id: req.params.id})
+	.then(result => res.send(result))
+	.catch(error => res.send(error))
+
+}
