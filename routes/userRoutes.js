@@ -30,7 +30,7 @@ router.put("/updateUserDetails", verify, userControllers.updateUserDetails)
 
 router.delete('/deleteSingleUser/:id', verify, verifyAdmin, userControllers.deleteSingleUser)
 
-router.delete('/deleteAllUsers', userControllers.deleteAllUsers)
+router.delete('/deleteAllUsers',verify, verifyAdmin, userControllers.deleteAllUsers)
 
 router.get('/getDetails', verify, userControllers.getDetails)
 
