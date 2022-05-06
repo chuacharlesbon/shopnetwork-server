@@ -16,5 +16,7 @@ router.post('/replyChat/:id', verify, chatControllers.replyChat)
 
 router.put('/updateDateChat/:id', verify, chatControllers.updateDateChat)
 
+router.get('/userChatList', verify, chatControllers.userChatList)
+
 
 module.exports = router;

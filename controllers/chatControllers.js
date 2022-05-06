@@ -95,11 +95,31 @@ const updateDateChat = (req, res) => {
 	.catch(error => res.send(error))
 }
 
+const userChatList = (req,res) => {
+	Chat.find({userId1: req.user.id})
+	.then(result => {
+
+		if(result.length === null){
+		Chat.find({userId2: req.user.id})
+		.then(result => res.send(result))
+		.catch(error => res.send(error))
+		}
+		else if (result.length > 0){
+			return res.send(result)
+		}
+		else {
+			return res.send("No Chats Available")
+		}
+	})
+	.catch(error => res.send(error))
+
+}
 
 
 module.exports = {
 	createChat,
 	viewChat,
 	replyChat,
-	updateDateChat
+	updateDateChat,
+	userChatList
 }
