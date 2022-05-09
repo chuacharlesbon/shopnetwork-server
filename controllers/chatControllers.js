@@ -99,9 +99,9 @@ const userChatList = (req,res) => {
 	Chat.find({userId1: req.user.id})
 	.then(result => {
 
-		if(result.length === null){
+		if(result.length === 0){
 		Chat.find({userId2: req.user.id})
-		.then(result => res.send(result))
+		.then(userId2 => res.send(userId2))
 		.catch(error => res.send(error))
 		}
 		else if (result.length > 0){
