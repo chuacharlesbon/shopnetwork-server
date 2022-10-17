@@ -80,7 +80,7 @@ const updateDateChat = (req, res) => {
 	.then(chat => {
 	let nd = new Date()
 	let wk = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"]
-
+	let mths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 	let updates = {
 		lastChatDate: `${wk[nd.getDay()]} ${nd.getHours()-12}:${(nd.getMinutes().length === 1)? `0`+`${nd.getMinutes()}` : `${nd.getMinutes()}`} ${
 			(nd.getHours() >= 12)? "PM" : "AM"
